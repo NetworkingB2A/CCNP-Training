@@ -1,0 +1,104 @@
+Router10
+  - loopback0 - 10.10.10.10/32
+  - loopback1 - 10.10.1.1/24
+  - GigabitEthernet0/0 - 192.168.2.10
+  - GigabitEthernet0/1 - 10.1.1.10/24
+
+Router11
+  - loopback0 - 10.11.11.11/32
+  - loopback1 - 10.11.1.1/24
+  - GigabitEthernet0/0 - 192.168.2.11
+  - GigabitEthernet0/1 - 10.1.1.11/24
+
+Router12
+  - loopback0 - 10.12.12.12/32
+  - loopback1 - 10.12.1.1/24
+  - GigabitEthernet0/0 - 192.168.2.12
+  - GigabitEthernet0/1 - 10.1.1.12/24
+  - GigabitEthernet0/2 - 10.12.13.12/24
+
+Router13
+  - loopback0 - 10.13.13.13/32
+  - loopback1 - 10.13.1.1/24
+  - GigabitEthernet0/0 - 192.168.2.13
+  - GigabitEthernet0/2 - 10.12.13.13/24
+
+Router14
+  - loopback0 - 10.14.14.14/32
+  - loopback1 - 10.14.1.1/24
+  - GigabitEthernet0/0 - 192.168.2.14
+  - GigabitEthernet0/1 - 10.1.1.14/24
+  - GigabitEthernet0/2 - 10.14.15.14/24
+
+Router15
+  - loopback0 - 10.15.15.15/32
+  - loopback1 - 10.15.1.1/24
+  - GigabitEthernet0/0 - 192.168.2.15
+  - GigabitEthernet0/1 - 10.15.16.15/24
+  - GigabitEthernet0/2 - 10.14.15.15/24
+
+Router16
+  - loopback0 - 10.16.16.16/32
+  - loopback1 - 10.16.1.1/24
+  - GigabitEthernet0/0 - 192.168.2.16
+  - GigabitEthernet0/1 - 10.15.16.16/24
+  - GigabitEthernet0/2 - 10.16.17.16/24
+  - GigabitEthernet0/3 - 10.16.18.16/24
+
+Router17
+  - loopback0 - 10.17.17.17/32
+  - loopback1 - 10.17.1.1/24
+  - GigabitEthernet0/0 - 192.168.2.17
+  - GigabitEthernet0/1 - 10.17.18.17/24
+  - GigabitEthernet0/2 - 10.16.17.17/24
+  - GigabitEthernet0/3 - 10.17.19.17/24
+
+Router18
+  - loopback0 - 10.18.18.18/32
+  - loopback1 - 10.18.1.1/24
+  - GigabitEthernet0/0 - 192.168.2.18
+  - GigabitEthernet0/1 - 10.17.18.18/24
+  - GigabitEthernet0/2 - 10.18.20.18/24
+  - GigabitEthernet0/3 - 10.16.18.18/24
+
+Router19
+  - loopback0 - 10.19.19.19/32
+  - loopback1 - 10.19.1.1/24
+  - GigabitEthernet0/0 - 192.168.2.19
+  - GigabitEthernet0/1 - 10.19.20.19/24
+  - GigabitEthernet0/2 - 10.19.2.1/24
+  - GigabitEthernet0/3 - 10.17.19.19/24
+
+Router20
+  - loopback0 - 10.20.20.20/32
+  - loopback1 - 10.20.1.1/24
+  - GigabitEthernet0/0 - 192.168.2.20
+  - GigabitEthernet0/1 - 10.19.20.20/24
+  - GigabitEthernet0/2 - 10.18.20.20/24
+
+Switch1
+  - GigabitEthernet0/0 - 192.168.2.9
+
+Switch30
+  - GigabitEthernet0/0 - 192.168.2.30
+  - Vlan 2 - 10.19.2.30
+
+Switch31
+  - GigabitEthernet0/0 - 192.168.2.31
+  - Vlan 2 - 10.19.2.31
+
+Switch32
+  - GigabitEthernet0/0 - 192.168.2.32
+  - Vlan 2 - 10.19.2.32
+
+Switch33
+  - GigabitEthernet0/0 - 192.168.2.33
+  - Vlan 2 - 10.19.2.33
+
+Switch34
+  - GigabitEthernet0/0 - 192.168.2.34
+  - Vlan 2 - 10.19.2.34
+
+Switch35
+  - GigabitEthernet0/0 - 192.168.2.35
+  - Vlan 2 - 10.19.2.35
