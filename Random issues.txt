@@ -1,0 +1,8 @@
+Here is a list of random issues i have faced.
+
+My devices in gns3 were not able to save their config
+two issues i found. 
+- the VM HDD was full 
+  - ended up having an issue with a snapshot i forgot to delete. because of this i could not increase my disk space.
+    I deleted the snap shot and was able to increase the space
+- the Virtual router directory was full of crash files. ended up deleteing the crash files.
