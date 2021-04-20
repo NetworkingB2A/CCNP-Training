@@ -1,0 +1,12 @@
+---
+plugin: netbox
+api_endpoint: http://angell-netbox:8000/
+token: 
+validate_cert: false
+config_context: false
+group_by:
+  - device_roles
+query_filters:
+  - status: "active"
+compose:
+  ansible_network_os: platform.slug
