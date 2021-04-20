@@ -1,0 +1,18 @@
+name,device_role,tenant,manufacturer,device_type,status,site,comments
+Router10,Lab Router,CCNP-Lab,Cisco,IOSvRouter,active,Lab,This is a Lab router for my CCNP training
+Router11,Lab Router,CCNP-Lab,Cisco,IOSvRouter,active,Lab,This is a Lab router for my CCNP training
+Router12,Lab Router,CCNP-Lab,Cisco,IOSvRouter,active,Lab,This is a Lab router for my CCNP training
+Router13,Lab Router,CCNP-Lab,Cisco,IOSvRouter,active,Lab,This is a Lab router for my CCNP training
+Router14,Lab Router,CCNP-Lab,Cisco,IOSvRouter,active,Lab,This is a Lab router for my CCNP training
+Router15,Lab Router,CCNP-Lab,Cisco,IOSvRouter,active,Lab,This is a Lab router for my CCNP training
+Router16,Lab Router,CCNP-Lab,Cisco,IOSvRouter,active,Lab,This is a Lab router for my CCNP training
+Router17,Lab Router,CCNP-Lab,Cisco,IOSvRouter,active,Lab,This is a Lab router for my CCNP training
+Router18,Lab Router,CCNP-Lab,Cisco,IOSvRouter,active,Lab,This is a Lab router for my CCNP training
+Router19,Lab Router,CCNP-Lab,Cisco,IOSvRouter,active,Lab,This is a Lab router for my CCNP training
+Router20,Lab Router,CCNP-Lab,Cisco,IOSvRouter,active,Lab,This is a Lab router for my CCNP training
+Switch30,Lab Switch,CCNP-Lab,Cisco,IOSvL2,active,Lab,This is a Lab router for my CCNP training
+Switch31,Lab Switch,CCNP-Lab,Cisco,IOSvL2,active,Lab,This is a Lab router for my CCNP training
+Switch32,Lab Switch,CCNP-Lab,Cisco,IOSvL2,active,Lab,This is a Lab router for my CCNP training
+Switch33,Lab Switch,CCNP-Lab,Cisco,IOSvL2,active,Lab,This is a Lab router for my CCNP training
+Switch34,Lab Switch,CCNP-Lab,Cisco,IOSvL2,active,Lab,This is a Lab router for my CCNP training
+Switch35,Lab Switch,CCNP-Lab,Cisco,IOSvL2,active,Lab,This is a Lab router for my CCNP training
