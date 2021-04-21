@@ -1,0 +1,19 @@
+example of a ansible host connections
+
+ansible_connection=ansible.netcommon.network_cli
+ansible_user=cisco
+ansible_password=cisco
+
+I created a custom field in netbox so i can call the ansible.netcommon.network_cli
+I created a custom field in netbox so i can call the user name and password of cisco cisco look at the netbox_inventory file
+
+I created the host files under my ansible config file so i over rid the default of /ect/ansible/host
+  I am using netbox as my source
+
+I changed my gather facts in my config file to be off by default and only on when i want it to be.
+
+I also changed my become settings in my config file as well
+Become = True
+Become_method = enable
+Become_user = cisco
+

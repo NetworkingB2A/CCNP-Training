@@ -1,0 +1,10 @@
+---
+- name: default config to apply
+  hosts: all
+  vars: 
+    ntp_var: 10.255.10.10
+ 
+  tasks:
+  - name: update NTP settings
+    cisco.ios.ios_ntp:
+      server: "{{ ntp_var }}"

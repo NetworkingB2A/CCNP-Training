@@ -1,0 +1,13 @@
+---
+- name: lets run a test
+  connection: network_cli
+  hosts: all
+ 
+  tasks:
+  - name: sending cisco IOS command
+    cisco.ios.ios_command:
+      commands:
+        -  show version
+        -  show ip route
+    register: output
+  - debug: var=output.stdout_lines 
