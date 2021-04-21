@@ -1,0 +1,6 @@
+---
+- name: configure NTP servers
+  cisco.ios.ios_ntp:
+    server: {{ ntpServer }}
+    logging: false
+    state: present
