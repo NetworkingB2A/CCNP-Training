@@ -3,8 +3,8 @@ plugin: netbox
 api_endpoint: http://angell-netbox:8000/
 token: 
 validate_cert: false
-config_context: true
-interfaces: yes
+config_context: yes
+interfaces: no
 group_by:
   - device_roles
 query_filters:
@@ -15,5 +15,7 @@ compose:
   ansible_connection: custom_fields.ansible_connection_type
   ansible_user: custom_fields.ansible_uname
   ansible_password: custom_fields.ansible_password
+  interface_id: config_context.interface_id
+  interface_ip: config_context.interface_ip
 
   

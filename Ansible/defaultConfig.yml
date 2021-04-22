@@ -1,8 +1,7 @@
 ---
 - name: default config to apply
-  hosts: all
-  vars: 
-    ntp_var: 10.255.10.10
+  hosts: device_roles_lab-router
+
  
   tasks:
   - name: update NTP settings
