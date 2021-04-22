@@ -14,5 +14,6 @@ compose:
   ansible_network_os: platform.slug
   ansible_connection: custom_fields.ansible_connection_type
   ansible_user: custom_fields.ansible_uname
-  ansible_password: custom_fields.
+  ansible_password: custom_fields.password
+  
   
