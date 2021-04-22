@@ -15,7 +15,8 @@ compose:
   ansible_connection: custom_fields.ansible_connection_type
   ansible_user: custom_fields.ansible_uname
   ansible_password: custom_fields.ansible_password
-  interface_id: config_context.interface_id
-  interface_ip: config_context.interface_ip
+  interfaces_info: config_context.interfaces
+  routes: config_context.routes
+
 
   
