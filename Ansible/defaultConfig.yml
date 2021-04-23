@@ -1,9 +1,0 @@
----
-- name: default config to apply
-  hosts: device_roles_lab-router
-
- 
-  tasks:
-  - name: update NTP settings
-    cisco.ios.ios_ntp:
-      server: "{{ ntp_var }}"
