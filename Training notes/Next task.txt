@@ -1,0 +1,2 @@
+Next i need to create a task that will create loopback interfaces
+next i need to create a task that will no shut the ports

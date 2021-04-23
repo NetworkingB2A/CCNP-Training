@@ -1,0 +1,24 @@
+{
+    "interfaces": [
+        {
+            "interface_id": "Loopback0",
+            "interface_ip": "10.19.19.19/32"
+        },
+        {
+            "interface_id": "Loopback1",
+            "interface_ip": "10.19.1.1/24"
+        },
+        {
+            "interface_id": "GigabitEthernet0/1",
+            "interface_ip": "10.19.20.19/24"
+        },
+        {
+            "interface_id": "GigabitEthernet0/2",
+            "interface_ip": "10.19.2.1/24"
+        },
+        {
+            "interface_id": "GigabitEthernet0/3",
+            "interface_ip": "10.17.19.19/24"
+        }
+    ]
+}
