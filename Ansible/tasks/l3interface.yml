@@ -1,5 +1,5 @@
 ---
-- name: Merge provided configuration with device configuration
+- name: Assign an ip address to an interface
   cisco.ios.ios_l3_interfaces:
     config:
       - name: "{{ interface.interface_id }}"

@@ -3,10 +3,11 @@
   hosts: all
 
   tasks:
-  - name: NTP config 
+  - name: Default config
     include_tasks: '{{ defaultconfigtasks }}'
     loop:
       - ../tasks/ntpconfig.yml
+      - ../tasks/interfacesettings.yml
       - ../tasks/l3interface.yml
     loop_control:
       loop_var: defaultconfigtasks 
