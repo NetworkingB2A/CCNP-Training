@@ -17,3 +17,8 @@ Become = True
 Become_method = enable
 Become_user = cisco
 
+I created an environmental variables for my netbox token.
+  I created it under my ~/.bashrc
+  the part that thew me off, I was trying this in my inventory file
+  token: env:NETBOX_TOKEN but it needs to be this token:env: NETBOX_TOKEN
+

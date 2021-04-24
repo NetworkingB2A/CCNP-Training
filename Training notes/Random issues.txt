@@ -6,3 +6,9 @@ two issues i found.
   - ended up having an issue with a snapshot i forgot to delete. because of this i could not increase my disk space.
     I deleted the snap shot and was able to increase the space
 - the Virtual router directory was full of crash files. ended up deleteing the crash files.
+
+
+I created an environmental variables for my netbox token.
+  I created it under my ~/.bashrc
+  the part that thew me off, I was trying this in my inventory file
+  token: env:NETBOX_TOKEN but it needs to be this token:env: NETBOX_TOKEN

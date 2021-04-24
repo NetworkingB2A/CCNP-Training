@@ -1,7 +1,7 @@
 ---
 plugin: netbox
 api_endpoint: http://angell-netbox:8000/
-token: 
+token:env: NETBOX_TOKEN
 validate_cert: false
 config_context: yes
 interfaces: no
