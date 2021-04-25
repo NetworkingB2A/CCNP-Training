@@ -1,6 +1,6 @@
 ---
 - name: default config to apply
-  hosts: all
+  hosts: device_roles_lab-router
 
   tasks:
   - name: Default config
@@ -9,5 +9,6 @@
       - ../tasks/ntpconfig.yml
       - ../tasks/interfacesettings.yml
       - ../tasks/l3interface.yml
+      - ../tasks/copyrunstart.yml
     loop_control:
       loop_var: defaultconfigtasks 

@@ -1,0 +1,4 @@
+---
+- name: Copy running config to statup config
+  cisco.ios.ios_config:
+    save_when: modified
