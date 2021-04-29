@@ -9,7 +9,7 @@ group_by:
   - device_roles
 query_filters:
   - role: lab-router
-#  - role: lab-switch
+  - role: lab-switch
 compose:
   ansible_network_os: platform.slug
   ansible_connection: custom_fields.ansible_connection_type
