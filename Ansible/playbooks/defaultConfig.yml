@@ -1,14 +1,17 @@
 ---
 - name: default config to apply
-  hosts: device_roles_lab-router
+  hosts: all
+  roles:
+    - role: ../roles/common
 
   tasks:
   - name: Default config
     include_tasks: '{{ defaultconfigtasks }}'
     loop:
       - ../tasks/ntpconfig.yml
-      - ../tasks/interfacesettings.yml
-      - ../tasks/l3interface.yml
-      - ../tasks/copyrunstart.yml
+#      - ../tasks/interfacesettings.yml
+#      - ../tasks/l3interface.yml
+      - ../tasks/snmpcreate.yml
+#      - ../tasks/copyrunstart.yml
     loop_control:
       loop_var: defaultconfigtasks 
