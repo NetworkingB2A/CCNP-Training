@@ -1,0 +1,7 @@
+SDM - Switching Database manager
+Really understand the different Tables
+  - TCAM
+  - FIB
+  - RIB
+  - CEF
+Vlan packet structure

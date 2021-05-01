@@ -1,4 +1,4 @@
 Next i need to create a task that will create loopback interfaces - complete
 next i need to create a task that will no shut the ports - complete
-Next I need to create a copy run start
-Next Step is to Train
+Next I need to create a copy run start - complete
+Next Step is to Train - started
