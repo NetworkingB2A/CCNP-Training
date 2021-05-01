@@ -9,9 +9,9 @@
     include_tasks: '{{ defaultconfigtasks }}'
     loop:
       - ../tasks/ntpconfig.yml
-#      - ../tasks/interfacesettings.yml
-#      - ../tasks/l3interface.yml
+      - ../tasks/interfacesettings.yml
+      - ../tasks/l3interface.yml
       - ../tasks/snmpcreate.yml
-#      - ../tasks/copyrunstart.yml
+      - ../tasks/copyrunstart.yml
     loop_control:
       loop_var: defaultconfigtasks 
