@@ -1,0 +1,4 @@
+---
+- name: create SNMP config
+  cisco.ios.ios_config: 
+    src: ../template/01-snmp-string.j2

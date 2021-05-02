@@ -1,2 +1,2 @@
 ---
-ntpServer: "10.255.255.1"
+logserver: 3.3.3.3
