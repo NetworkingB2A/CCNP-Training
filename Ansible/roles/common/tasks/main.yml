@@ -1,4 +1,4 @@
 ---
-- name: create SNMP config
+- name: create Logging config
   cisco.ios.ios_config: 
     src: ../templates/main.j2
