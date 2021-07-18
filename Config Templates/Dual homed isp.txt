@@ -1,3 +1,20 @@
+What do I need to accomplish
+
+have a primary and a backup ISP
+
+do not allow transitory between the routers 
+
+I need to decide what i want be my primary router 
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                NOTES
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+To allow for easy IBGP neighbor and allow the Default route to propagate between the IBGP peering. I made the CER/PER of the ISP in the OSFP. Then i didnt have to use a next-hop-self command.
+
+
+
 !!!!!! ISP1 !!!!!! 
 
 hostname ISP1
@@ -39,6 +56,7 @@ network 10.20.20.0 mask 255.255.255.0
 neighbor 10.1.1.5 remote-as 100 
 
 
+
 !!!!!! WAN-R1 !!!!!! 
 hostname WAN-R1
 enable password cisco
@@ -63,6 +81,10 @@ network 10.100.100.0 mask 255.255.255.0
 network 10.110.1.0 mask 255.255.255.0
 network 10.110.110.0 mask 255.255.255.0
 neighbor 10.1.1.2 remote-as 10 
+neighbor 10.120.120.120 remote-as 100
+neighbor 10.120.120.120 update-source loopback0
+neighbor 10.1.1.2 route-map RM-TO-ISP out
+
 !
 router ospf 1
 network 10.100.100.0 0.0.0.255 area 0
@@ -70,7 +92,11 @@ network 10.1.1.0 0.0.0.3 area 0
 network 10.110.110.0 0.0.0.255 area 0
 passive-interface gi0/0
 
+ip as-path access-list 1 permit ^$
 
+route-map RM-TO-ISP permit 10
+ description allow only advertisement of local AS
+ match as-path 1
 
 
 !!!!!! WAN-R2!!!!!! 
@@ -95,12 +121,29 @@ int loopback 1
 ip address 10.120.1.120 255.255.255.0
 !
 router bgp 100
-network 10.100.100.0 mask 255.255.255.0
-network 10.120.120.0 mask 255.255.255.0
-neighbor 10.1.1.6 remote-as 20 
+ bgp log-neighbor-changes
+ network 10.100.100.0 mask 255.255.255.0
+ network 10.120.120.0 mask 255.255.255.0
+ neighbor 10.1.1.6 remote-as 20
+ neighbor 10.1.1.6 route-map RM-FROM-ISP in
+ neighbor 10.1.1.6 route-map RM-TO-ISP out
+ neighbor 10.110.110.110 remote-as 100
+ neighbor 10.110.110.110 update-source Loopback0
+
 !
 router ospf 1
 network 10.100.100.0 0.0.0.255 area 0
 network 10.1.1.4 0.0.0.3 area 0
 network 10.120.120.0 0.0.0.255 area 0
 passive-interface gi0/0
+
+
+ip as-path access-list 1 permit ^$
+
+route-map RM-TO-ISP permit 10
+ description allow only advertisement of local AS
+ match as-path 1
+
+ route-map RM-FROM-ISP permit 10
+ description This is the backup router. lower local pref
+ set local-preference 80
