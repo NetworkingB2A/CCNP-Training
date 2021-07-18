@@ -22,5 +22,8 @@ Training Material
 
 
 
-Drawing
+Main drawing with a more complicated topology
 ![](images/CCNP%20Topology.png)
+
+Dual-Homed topology
+![](images/Dual-Homed.png)
