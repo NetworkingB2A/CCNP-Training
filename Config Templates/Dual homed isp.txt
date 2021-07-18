@@ -1,0 +1,106 @@
+!!!!!! ISP1 !!!!!! 
+
+hostname ISP1
+enable password cisco
+
+
+int gi 0/0
+ip address 10.1.1.2 255.255.255.252
+no shut
+
+int loopback 0
+ip address 10.10.10.10 255.255.255.0
+
+ip route 0.0.0.0 0.0.0.0 null0
+
+router bgp 10
+network 0.0.0.0 mask 0.0.0.0
+network 10.10.10.0 mask 255.255.255.0
+neighbor 10.1.1.1 remote-as 100 
+
+!!!!!! ISP2 !!!!!! 
+
+hostname ISP2
+enable password cisco
+
+
+int gi 0/0
+ip address 10.1.1.6 255.255.255.252
+no shut
+
+int loopback 0
+ip address 10.20.20.20 255.255.255.0
+
+ip route 0.0.0.0 0.0.0.0 null0
+
+router bgp 20
+network 0.0.0.0 mask 0.0.0.0
+network 10.20.20.0 mask 255.255.255.0
+neighbor 10.1.1.5 remote-as 100 
+
+
+!!!!!! WAN-R1 !!!!!! 
+hostname WAN-R1
+enable password cisco
+!
+int gi 0/0
+ip address 10.1.1.1 255.255.255.252
+no shut
+!
+int gi0/1
+ip address 10.100.100.2 255.255.255.0
+standby 0 ip 10.100.100.1
+standby 0 priority 150
+!
+int loopback 0
+ip address 10.110.110.110 255.255.255.0
+!
+int loopback 1
+ip address 10.110.1.110 255.255.255.0
+!
+router bgp 100
+network 10.100.100.0 mask 255.255.255.0
+network 10.110.1.0 mask 255.255.255.0
+network 10.110.110.0 mask 255.255.255.0
+neighbor 10.1.1.2 remote-as 10 
+!
+router ospf 1
+network 10.100.100.0 0.0.0.255 area 0
+network 10.1.1.0 0.0.0.3 area 0
+network 10.110.110.0 0.0.0.255 area 0
+passive-interface gi0/0
+
+
+
+
+!!!!!! WAN-R2!!!!!! 
+hostname Wan-R2
+enable password cisco
+!
+int gi 0/0
+ip address 10.1.1.5 255.255.255.252
+no shut
+!
+int gi0/1
+ip address 10.100.100.3 255.255.255.0
+standby 0 ip 10.100.100.1
+standby 0 priority 100
+standby 0 preempt
+no shut
+!
+int loopback 0
+ip address 10.120.120.120 255.255.255.0
+!
+int loopback 1
+ip address 10.120.1.120 255.255.255.0
+!
+router bgp 100
+network 10.100.100.0 mask 255.255.255.0
+network 10.120.120.0 mask 255.255.255.0
+neighbor 10.1.1.6 remote-as 20 
+!
+router ospf 1
+network 10.100.100.0 0.0.0.255 area 0
+network 10.1.1.4 0.0.0.3 area 0
+network 10.120.120.0 0.0.0.255 area 0
+passive-interface gi0/0
