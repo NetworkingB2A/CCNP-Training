@@ -81,6 +81,7 @@ network 10.100.100.0 mask 255.255.255.0
 network 10.110.1.0 mask 255.255.255.0
 network 10.110.110.0 mask 255.255.255.0
 neighbor 10.1.1.2 remote-as 10 
+neighbor 10.1.1.2 route-map RM-FROM-ISP in
 neighbor 10.120.120.120 remote-as 100
 neighbor 10.120.120.120 update-source loopback0
 neighbor 10.1.1.2 route-map RM-TO-ISP out
@@ -98,6 +99,9 @@ route-map RM-TO-ISP permit 10
  description allow only advertisement of local AS
  match as-path 1
 
+ route-map RM-FROM-ISP permit 10
+ description This is the backup router. lower local pref
+ set local-preference 100
 
 !!!!!! WAN-R2!!!!!! 
 hostname Wan-R2
