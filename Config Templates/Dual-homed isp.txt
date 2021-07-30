@@ -1,0 +1,153 @@
+What do I need to accomplish
+
+have a primary and a backup ISP
+
+do not allow transitory between the routers 
+
+I need to decide what i want be my primary router 
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                NOTES
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+To allow for easy IBGP neighbor and allow the Default route to propagate between the IBGP peering. I made the CER/PER of the ISP in the OSFP. Then i didnt have to use a next-hop-self command.
+
+
+
+!!!!!! ISP1 !!!!!! 
+
+hostname ISP1
+enable password cisco
+
+
+int gi 0/0
+ip address 10.1.1.2 255.255.255.252
+no shut
+
+int loopback 0
+ip address 10.10.10.10 255.255.255.0
+
+ip route 0.0.0.0 0.0.0.0 null0
+
+router bgp 10
+network 0.0.0.0 mask 0.0.0.0
+network 10.10.10.0 mask 255.255.255.0
+neighbor 10.1.1.1 remote-as 100 
+
+!!!!!! ISP2 !!!!!! 
+
+hostname ISP2
+enable password cisco
+
+
+int gi 0/0
+ip address 10.1.1.6 255.255.255.252
+no shut
+
+int loopback 0
+ip address 10.20.20.20 255.255.255.0
+
+ip route 0.0.0.0 0.0.0.0 null0
+
+router bgp 20
+network 0.0.0.0 mask 0.0.0.0
+network 10.20.20.0 mask 255.255.255.0
+neighbor 10.1.1.5 remote-as 100 
+
+
+
+!!!!!! WAN-R1 !!!!!! 
+hostname WAN-R1
+enable password cisco
+!
+int gi 0/0
+ip address 10.1.1.1 255.255.255.252
+no shut
+!
+int gi0/1
+ip address 10.100.100.2 255.255.255.0
+standby 0 ip 10.100.100.1
+standby 0 priority 150
+!
+int loopback 0
+ip address 10.110.110.110 255.255.255.0
+!
+int loopback 1
+ip address 10.110.1.110 255.255.255.0
+!
+router bgp 100
+network 10.100.100.0 mask 255.255.255.0
+network 10.110.1.0 mask 255.255.255.0
+network 10.110.110.0 mask 255.255.255.0
+neighbor 10.1.1.2 remote-as 10 
+neighbor 10.1.1.2 route-map RM-FROM-ISP in
+neighbor 10.120.120.120 remote-as 100
+neighbor 10.120.120.120 update-source loopback0
+neighbor 10.1.1.2 route-map RM-TO-ISP out
+
+!
+router ospf 1
+network 10.100.100.0 0.0.0.255 area 0
+network 10.1.1.0 0.0.0.3 area 0
+network 10.110.110.0 0.0.0.255 area 0
+passive-interface gi0/0
+
+ip as-path access-list 1 permit ^$
+
+route-map RM-TO-ISP permit 10
+ description allow only advertisement of local AS
+ match as-path 1
+
+ route-map RM-FROM-ISP permit 10
+ description This is the backup router. lower local pref
+ set local-preference 100
+
+!!!!!! WAN-R2!!!!!! 
+hostname Wan-R2
+enable password cisco
+!
+int gi 0/0
+ip address 10.1.1.5 255.255.255.252
+no shut
+!
+int gi0/1
+ip address 10.100.100.3 255.255.255.0
+standby 0 ip 10.100.100.1
+standby 0 priority 100
+standby 0 preempt
+no shut
+!
+int loopback 0
+ip address 10.120.120.120 255.255.255.0
+!
+int loopback 1
+ip address 10.120.1.120 255.255.255.0
+!
+router bgp 100
+ bgp log-neighbor-changes
+ network 10.100.100.0 mask 255.255.255.0
+ network 10.120.120.0 mask 255.255.255.0
+ neighbor 10.1.1.6 remote-as 20
+ neighbor 10.1.1.6 route-map RM-FROM-ISP in
+ neighbor 10.1.1.6 route-map RM-TO-ISP out
+ neighbor 10.110.110.110 remote-as 100
+ neighbor 10.110.110.110 update-source Loopback0
+
+!
+router ospf 1
+network 10.100.100.0 0.0.0.255 area 0
+network 10.1.1.4 0.0.0.3 area 0
+network 10.120.120.0 0.0.0.255 area 0
+passive-interface gi0/0
+
+
+ip as-path access-list 1 permit ^$
+
+route-map RM-TO-ISP permit 10
+ description allow only advertisement of local AS
+ match as-path 1
+
+ route-map RM-FROM-ISP permit 10
+ description This is the backup router. lower local pref
+ set local-preference 80
