@@ -1,0 +1,8 @@
+---
+gather_facts must be off
+- name: update username and password
+- raw: "{{ item }}"
+  with_items:
+  - username temp
+  - change password
+  - commit
