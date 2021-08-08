@@ -48,7 +48,7 @@ Highest router id wins
 
 ## Network Types
 Broadcast Network Type
-- Broadcast i shte default OSPF network type for any ethernet interface
+- Broadcast i send default OSPF network type for any ethernet interface
 - dr and bdr routes are elected
 - default hello interval: 10 seconds  
 
@@ -84,9 +84,23 @@ Valid OSPF Network types for Peer
 - Type 5 LSA: An AS external LSA is created by an ASBR to advertise networks in a different AS.
 - Type 7 LSA: An NSSA is sent from an ASBR into an NSSA to advertise network from a different AS.
 
-
+## Area Types
+- Normal
+- Stub area
+  - This is will you send an area only two types of Type 3 LSAs. (Side note - you can not send type 4/5 LSAs into this area type)
+    - 1 Type 3 LSA will be a normal one. This will be a summary LSA for a listing LSA for a different area
+    - The other LSA will be a Type 3 default LSA. This one will suppress the Type 4 LSA and and the Type 5 LSA into a single type 3 LSA
+- Totally Stubby Area
+  - This will happen when you only send a Type 3 Default LSA into an area. You will NO LONGER be sending a normal Type 3 LSA. (Side note - you can not send type 4/5 LSAs into this area type)
+- Not-So-Stubby Area(NSSA)
+  - This happen when you enter an ASBR in an Stub/Totally Stubby Area, The ASBR will send out Type 7 LSAs
+- Totally Not-So-Stubby Area
+  - this will act the same as a Totally Stubby area and a Not-So-Stubby area. this area will only receive the Type 7 LSA and the a Default Type 3 LSA.
 
 ## Extra Notes
 Hello Messages
 - All OSPF routers - 224.0.0.5 or FF02::5
 - All designated routers - 224.0.0.6 or FF02::6
+
+
+## Terminology
