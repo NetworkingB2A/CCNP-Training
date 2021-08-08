@@ -1,7 +1,23 @@
 Topic 3.2.b
 
-# OSPF
+# OSPF v2
 
+## How does OSPF work?
+### What is a LSA?
+### What is the LSDB?
+### What is an Area?
+### What is the the Hello and Dead interval?
+### What is OSPF authentication? 
+### What is in a Hello Packet?
+
+
+
+## Metric
+Link Speed | Cost
+---|---
+10 Mbps|
+100 Mbps|
+1 Gbps|
 
 ## Neighborship vs Adjacencies
 
@@ -26,7 +42,6 @@ Adjacencies are routers that
 
 Number of Adjacencies = [n*(n-1)]/2 ** n is the number of routers
 
-
 Adjacencies only need to be formed with the DR and the BDR
 DR = Designated Router
 BDR = Backup Designated Router
@@ -43,8 +58,6 @@ Highest router id wins
 - configured in router configuration mode
 - if there is no configured router id, the highest ip address on a loopback interface wins
 - if there is no loopback configured, the highest ip address on an interface that is up wins
-
-
 
 ## Network Types
 Broadcast Network Type
@@ -104,3 +117,19 @@ Hello Messages
 
 
 ## Terminology
+Term|Definition
+---|---
+OSPF
+LSA|Link State Advertisement
+LSDB
+SFP
+ABR
+ASBR
+passive-interface
+Route table abbreviations | definition  
+O | 
+IA | 
+N1 |
+N2 |
+E1 |
+E2 | Default Metric Type, unless specified
