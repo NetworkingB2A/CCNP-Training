@@ -1,3 +1,4 @@
 #ignore folder "ignore"
 ignore/*
 .vscode/*
+Training notes/.DS_Store
