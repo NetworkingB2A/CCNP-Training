@@ -46,6 +46,10 @@ Selecting Wi-Fi channels
 2.4 Ghz 
 - Technically there are 14 channels. but 14 is only allowed in Japan. and only works on on 802.11b
 - Most common channels are 1, 6, 11
+- Channels are 5 MHz apart
+- Range of frequency 22 MHz
+
+![2.4 GHz diagram](../images/2-4-GHZ-Diagram.png)
 
 5.0 Ghz
 
@@ -54,6 +58,45 @@ Standard|Year released|Frequency band|Maximum bandwidth|Transmission Method
 802.11n|2009| 2.4 and 5|150 Mbps|OFDM
 802.11ac|2014|5|3.5 Gbps|OFDM
 802.11ax|2019|2.4 and 5|9.6 Gbps|OFDMA
+
+## Wireless communication Theory
+
+
+
+           |  Cycle  |     Frequency = 2 Hertz
+           ^         ^
+          / \       / \
+         /   \     /   \
+     ---/-----\ --/-----\ ------
+               \ /       \ / 
+                V         V
+        |    1 second       |
+
+Frequency = Number of complete cycles per second  
+Cycle = One complete up and down motion  
+Hertz = Measurement of cycles
+Radio Frequency (RF) Range:
+- Between 3 kilohertz (Khz) and 300 Gighertz (gHz)
+- Wireless communication found within this range
+    - 2.4 GHz band = 2.4 2.4835 GHz
+    - 5 GHz band = 5.15 to 5.85 GHz
+- Wireless band subdivided into channels
+
+RF Signal Strength:
+- Measured in decibel milliwatts (dBm)
+- Transmitters range between 1 and 100 milliwatts
+- Milliwatt (mW) = 1/1000 of a watt
+
+mW|dBm
+-|-
+1 mW|0 dBm
+10 mW|10 dBm
+100 mW|20 dBm
+1000 mW|30 dBm
+
+
+## Other notes
+
 
 ## Terminology
 Term|Definition|Other
