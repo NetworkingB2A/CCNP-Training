@@ -94,8 +94,23 @@ mW|dBm
 100 mW|20 dBm
 1000 mW|30 dBm
 
+Rule of 10s and 3s:
+- Gain of 10 dBm = mW power is multiplied by 10
+- Loss of 10 dBm =  mW power is divided by 10
+- Gain of 3 dBm = mW power is doubled
+- Loss of 3 dBm = mW power is halved
 
-## Other notes
+Received Signal Strength Indicator (RSSI):
+- Closer to zero value means a strong signal
+- the reason its negative is because the farther away you get from the access point the less milliwatts you are receiving. meaning the less dBms you are receiving.
+- -30 is very good, -90 is not useable, -50 is the sweet spot, -70 works but not well for 
+
+#### Need to understand better
+Signal to noise ratio (SNR) 
+- Difference in decibels between signal and background noise.
+- The background noise is called the Noise floor
+
+
 
 
 ## Terminology
