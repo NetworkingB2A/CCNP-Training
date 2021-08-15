@@ -8,25 +8,42 @@ Inter-controller roaming
 Layer two roaming
 Layer three roaming
 Anchor controller
-Foreign controller
+Foreign controller  
 
+
+# This one needs to be updated
 ### Wireless deployment options
+Centralized  
+Distributed  
+Controller-less  
+Controller based  
+Cloud  
+Remote Branch  
+
 Ad Hoc Wireless lan
 - Two wireless clients connecting directly to each other
 - no need for an access point
 - Not used very often  
 
-Autonomous access point
-- Standalone, independent devices
-- Home or small office environments
-- Controller-less deployment model
-- Not commonly used in large enterprise networks
-- You must manage each one individually  
-
 Mesh Wireless Lan
 - Wireless access points that connect to each other with Wireless
 - no need for a wired connection for the access point to work
 - Service will drop the more access points you add  
+
+
+
+
+
+
+## AP type, Ap Mode and antenna type
+
+Autonomous Access Points
+- Standalone, independent devices
+- Home or small office environments
+- Each access point is controlled independent
+- No knowledge of other access points in the network
+- Configured individually without a centralized controller
+- Not commonly used in large enterprise networks
 
 Lightweight access point 
 - Requires central wireless LAN controller (WLC)
@@ -34,12 +51,52 @@ Lightweight access point
 - WLCs can be physical or virtual
 - Controller communications changes to the aps
 - Control and provisioning of wireless access points (CAPWAP)
+- Propagate an SSID throughout a large area
 
-Cisco FlexConnect  
+Local mode
+- Default operating mode for LAPs
+- Provides SSID and wireless
+- When not actively in use, LAP will preform background operations
+
+Monitor mode
+- LAP only performs background operations
+- No network access provided to users
+- Monitoring on IDS event, rogue AP, location-based services, ect  
+
+FlexConnect
+- Allows for management of LAPs at a remote location
+- Controlled over a WAN connection
+- Data is dropped off at the site instead of the capwap tunnel
+
+Sniffer Mode
+- LAP acts as a packet capture device
+- Dedicated to receiving wireless traffic
+- Traffic forwarded to a traffic analyzer system for analysis  
+
+Rogue Detector mode
+- LAP is dedicated to the discovery of rouge decies
+- checks the mac addresses of clients against known addresses
+- Helps to prevent mac spoofing and similar attacks
+
+Bridge mode
+- LAP is used to bridge together separate sites as a mesh bridge
+- point-to-point
+- point-to-multipoint
+
+Flex+bridge
+- Combines FlexConnect and Bridge mode function
+- Mesh network that can be controlled remotely
+
+SE-Connect mode 
+- LAP operates as a spectrum analyzer devices
+- Gathers information about all channels
+- Forwards information to a spectrum analysis tool
+- Cisco spectrum expert
+
+
 Central switched  
 Local switched  
 Local Services  
-
 
 ### Wireless and Radios
 Selecting Wi-Fi channels  
