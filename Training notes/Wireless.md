@@ -37,6 +37,7 @@ Mesh Wireless Lan
 
 ## AP type, Ap Mode and antenna type
 
+### AP Type
 Autonomous Access Points
 - Standalone, independent devices
 - Home or small office environments
@@ -53,6 +54,7 @@ Lightweight access point
 - Control and provisioning of wireless access points (CAPWAP)
 - Propagate an SSID throughout a large area
 
+### Ap Mode
 Local mode
 - Default operating mode for LAPs
 - Provides SSID and wireless
@@ -94,6 +96,7 @@ SE-Connect mode
 - Cisco spectrum expert
 
 
+### Antenna Type
 Central switched  
 Local switched  
 Local Services  
