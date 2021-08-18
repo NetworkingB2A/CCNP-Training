@@ -164,6 +164,9 @@ Received Signal Strength Indicator (RSSI):
 - Closer to zero value means a strong signal
 - the reason its negative is because the farther away you get from the access point the less milliwatts you are receiving. meaning the less dBms you are receiving.
 - -30 is very good, -90 is not useable, -50 is the sweet spot, -70 works but not well for 
+- 0 no connectivity. 255 is great
+- Sensitivity level
+  -  Need to learn more
 
 #### Need to understand better
 Signal to noise ratio (SNR) 
@@ -183,3 +186,5 @@ ESSID|A collection of all BSSs (Same as SSID| Extended Service Set ID
 MBSSID|| Multiple Basic Service Set ID
 Intra-controller roaming
 Inter-controller roaming
+EIRP||Effective Isotropic radiated power
+Free space path loss||
