@@ -3,13 +3,31 @@ Topic 1.2 and 3.3
 
 ## Wireless Lan Design
 ### What are the different roaming types?
+Roaming
+- When a wireless client changes it access point association
 Intra-controller roaming
+- Roaming between access points which are connected to the same wireless lan controller
 Inter-controller roaming
+- Roaming between access points which are connected to the different wireless LAN controllers 
 Layer two roaming
+- This is two different controllers that are serving different access points
+- But both of these controllers are on the same vlan/subnet
+- I keep my same ip address
+- My user should not notice
 Layer three roaming
+- This is two different controllers that are serving different access points
+- This time the two controllers and access points are on different vlans/subnets
+- Client will not need to a new ip address
+  - What happens is the two wireless controller will form a CAPWAP tunnel with each other and sends that clients data
+  - The original controller is called the Anchor controller. This one houses my data
+  - The controller that i am passing through is call the foreign controller
 Anchor controller
 Foreign controller  
-
+![Anchor Vs Foreign Controllers](../images/AnchorVsForeign.png)
+ Mobility group
+  - This is where you have groups of controllers that can take and for CAPWAP tunnels with other
+  - But you cannot have two WLC that are in different mobility groups form CAPWAP tunnels
+  - This will cause a outage for your client
 
 # This one needs to be updated
 ### Wireless deployment options
@@ -54,6 +72,24 @@ Lightweight access point
 - Control and provisioning of wireless access points (CAPWAP)
 - Propagate an SSID throughout a large area
 
+## Access point Operation
+- The access point will first boot an operating system
+- Then the ap will discovery a WLC. The goal is to discover as many WLC's as possible.
+  1. AP sends out a broadcast message to find out if WLC is on the same network
+  2. local stored WLC management ip address sorted (This would not happen with a brand new AP, or if you log in and assign WLC address)
+  3. DHCP option 43 information used
+  4. DNS discovery - CISCO-CAPWAP-CONTROLLER.localdomain
+  5. no controller found, LAP will reboot and try again
+- Establish an CAPWAP tunnel
+- AP will Join the WLC
+  - WLC selection process
+    1. Join a previously know controller
+    2. Join a master controller
+    3. Join the least-loaded controller
+- Image download check
+- Config download state
+- Now operating mode
+
 ### Ap Mode
 Local mode
 - Default operating mode for LAPs
@@ -97,9 +133,18 @@ SE-Connect mode
 
 
 ### Antenna Type
-Central switched  
-Local switched  
-Local Services  
+Omnidirectional
+- Donut shaped wireless single
+- Lower gain, with less focused path
+- Better for broad coverage
+Directional
+- Designed to propagate in a specific direction
+- Higher gain, with a very focused path
+- Better for specifically directing coverage
+- Types
+  - Patch
+  - Yagi
+  - Dish 
 
 ### Wireless and Radios
 Selecting Wi-Fi channels  
@@ -173,8 +218,12 @@ Signal to noise ratio (SNR)
 - Difference in decibels between signal and background noise.
 - The background noise is called the Noise floor
 
-
-
+## WLAN Troubleshooting
+Sucessful client WLAN association
+ - Client must be within the AP RF range
+ - Client must properly authenticate to the WLAN
+ - Client should receive a valid ip address on the subnet
+Some errors you make see. May need to google for the real world. check the status code on client tab
 
 ## Terminology
 Term|Definition|Other
