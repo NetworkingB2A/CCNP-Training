@@ -2,3 +2,14 @@
 ignore/*
 .vscode/*
 Training notes/.DS_Store
+.DS_Store
+!.gitignore
+
+#output folder
+output/*
+
+# Vitrual enviroment 
+venv/
+
+!.gitignore
+
