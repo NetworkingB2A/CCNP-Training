@@ -27,3 +27,9 @@ Main drawing with a more complicated topology
 
 Dual-Homed topology
 ![](images/Dual-Homed.png)
+
+
+## Fun Notes
+### What are some of my favorite Python modules
+- nested-lookup - https://pypi.org/project/nested-lookup/
+- ipaddress - https://docs.python.org/3/library/ipaddress.html
