@@ -225,6 +225,45 @@ Sucessful client WLAN association
  - Client should receive a valid ip address on the subnet
 Some errors you make see. May need to google for the real world. check the status code on client tab
 
+
+## Wireless Security
+Extensible Authentication Protocol (EAP)
+802.1x Authentication:
+- IEEE Standard which defines port-based network control
+- uses EAP over LAN (EAPoL) to control access to the local area network
+- EAP can only use RADIUS
+
+Three device roles for EAP
+1. Supplicant: The endpoint requesting access (Laptop)
+2. Authenticator: Network device controlling phyical access to the network (WLC)
+3. Authentication server: Performs the actual authentication of the endpoint (ISE)
+
+Supplicant | Authenticator | Authentication server
+| EAPoL Start >> | |
+|<< EAP-Request/Idenitiy| | 
+|EAP-Response/Idenity >> | RADIUS access-request >> |
+|<< EAP-Request| << Radius Access-Challenge | 
+|EAP-Response >>| RADIUS access-request >> | 
+|<< EAP-Seccess| << Radius Access-accept|
+
+EAP Types
+- Native EAP Types
+  - EAP-TLS
+    - One of the most secure EAP types
+    - Uses x.509 certificates for Mutual authentication
+    - Highly regarded in BYOD deployments
+  - EAP-MD5
+    - Hides credentials in a hash
+    - Common on IP phones
+  - EAP-MSCHAPv2
+    - Credential encrypted within a MSCHAPv2 session
+    - Simple transmission of credentials
+    - Ability to communicate with Active Directory
+  -  
+
+
+
+
 ## Terminology
 Term|Definition|Other
 ---|---|---
