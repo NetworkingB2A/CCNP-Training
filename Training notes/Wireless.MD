@@ -233,6 +233,7 @@ Extensible Authentication Protocol (EAP)
 - uses EAP over LAN (EAPoL) to control access to the local area network
 - EAP can only use RADIUS
 
+
 Three device roles for EAP
 1. Supplicant: The endpoint requesting access (Laptop)
 2. Authenticator: Network device controlling phyical access to the network (WLC)
@@ -247,6 +248,9 @@ Supplicant | Authenticator | Authentication server
 |<< EAP-Seccess| << Radius Access-accept|
 
 EAP Types
+- Notes
+  - Both tunnel types use TLS tunnel as the outer method and EAP type as an inner method
+
 - Native EAP Types
   - EAP-TLS
     - One of the most secure EAP types
@@ -259,7 +263,19 @@ EAP Types
     - Credential encrypted within a MSCHAPv2 session
     - Simple transmission of credentials
     - Ability to communicate with Active Directory
-  -  
+  - EAP-GTC
+    - Cisco alternative to MSCHAPv2
+    - Enables more generic authentication
+-  Tunneled EAP Types
+  - PEAP (Protected EAP)
+    - Originally proposed by Microsoft
+    - Uses X.509 certificate
+    - Uses an addintional native EAP type for the inner method
+  - EAP-FAST (Flexible authentication via Secure Tunnel)
+    - Created by Cisco as a PEAP alternative
+    - Faster re-authentication
+    - Faster wireless roaming
+    - Uses protected access credentials (PACs)
 
 
 
