@@ -38,7 +38,24 @@ Router ID| A tie breaker, where the route received from the router with the lowe
 
 
 
+BGP messages
+Type|Name|Functional Overview
+-|-|-
+1|OPEN|Sets up and establishes BGP adjacency
+2|UPDATE|Advertises,updates, or withdraws routes
+3|NOTIFICATION|Indicates an error condition to a BGP neighbor
+4|KEEPALIVE|Ensures that BGP neighbors are still alive
 
+NOTES
+Hold time - When establishing a BGP session, the routers use the smaller hold time value contained in the two routers' OPEN messages. Default hold time for Cisco is 180 seconds.
+
+BGP Neighbor states 
+Idle
+Connect
+Active
+OpenSent
+OpenConfirm
+Established
 
 
 
