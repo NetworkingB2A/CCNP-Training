@@ -1,6 +1,108 @@
 Topic 1.2 and 3.3
 # Wireless 
 
+## Terminology
+Term|Definition|Other
+---|---|---
+AD-HOC mode|Two or more wireless clients connecting directly to each other,<br>No Need for an access point (if your computer has a wireless card),<br>Not used very often |
+BSS|This is the range of a wireless device and how far it can propagate. |Basic Service Set
+IBSS|Ad hoc service connection, This is creating wireless connections with out the use of any other network equipment. <br> Sometimes also called Peer-to-peer|Independent Basic Service Set
+BSA|This is the range of  equipment when using network infrastructure(ie using an access point.) Kind of like the range of an access point. <br> Might also be called a cell. |Basic Service Area
+SSID|Name of a network|Service Set ID
+BSSID|MAC Address of an access point| Basic Service Set ID
+ESSID|When a Set of access points advertise the same BSA(or advertising the same SSID)| Extended Service Set ID
+MBSSID|| Multiple Basic Service Set ID
+Intra-controller roaming
+Inter-controller roaming
+EIRP||Effective Isotropic radiated power
+Free space path loss||
+
+
+## Wireless Standards
+Who creates the wireless standards - The IEEE
+- 802.11 Wireless LAN standards
+Interoperability testing
+- WIFI alliance is a 3rd party group that does WIFI testing to make sure companies work together, as expected.
+Regulation Organizations - they design power levels, What channels can be used, many other standards.
+- FCC - Federal communications commission - United states
+- ETSI - European Telecommunications Standards institute
+- TELEC - Telecom Engineering Center - Japan
+- BRAI - Broadcasting Regulatory Authority of India
+
+
+### Wireless and Radios
+Selecting Wi-Fi channels  
+2.4 Ghz 
+- Technically there are 14 channels. but 14 is only allowed in Japan. and only works on on 802.11b
+- Most common channels are 1, 6, 11
+- Channels are 5 MHz apart
+- Range of frequency 22 MHz
+
+![2.4 GHz diagram](../images/2-4-GHZ-Diagram.png)
+
+5.0 Ghz
+
+Standard|Year released|Frequency band|Maximum bandwidth|Transmission Method
+---|---|---|---|---|
+802.11n|2009| 2.4 and 5|150 Mbps|OFDM
+802.11ac|2014|5|3.5 Gbps|OFDM
+802.11ax|2019|2.4 and 5|9.6 Gbps|OFDMA
+
+## Wireless communication Theory
+
+
+
+           |  Cycle  |     Frequency = 2 Hertz
+           ^         ^
+          / \       / \
+         /   \     /   \
+     ---/-----\ --/-----\ ------
+               \ /       \ / 
+                V         V
+        |    1 second       |
+
+Frequency = Number of complete cycles per second  
+Cycle = One complete up and down motion  
+Hertz = Measurement of cycles
+Radio Frequency (RF) Range:
+- Between 3 kilohertz (Khz) and 300 Gighertz (gHz)
+- Wireless communication found within this range
+    - 2.4 GHz band = 2.4 2.4835 GHz
+    - 5 GHz band = 5.15 to 5.85 GHz
+- Wireless band subdivided into channels
+
+RF Signal Strength:
+- Measured in decibel milliwatts (dBm)
+- Transmitters range between 1 and 100 milliwatts
+- Milliwatt (mW) = 1/1000 of a watt
+
+mW|dBm
+-|-
+1 mW|0 dBm
+10 mW|10 dBm
+100 mW|20 dBm
+1000 mW|30 dBm
+
+Rule of 10s and 3s:
+- Gain of 10 dBm = mW power is multiplied by 10
+- Loss of 10 dBm =  mW power is divided by 10
+- Gain of 3 dBm = mW power is doubled
+- Loss of 3 dBm = mW power is halved
+
+Received Signal Strength Indicator (RSSI):
+- Closer to zero value means a strong signal
+- the reason its negative is because the farther away you get from the access point the less milliwatts you are receiving. meaning the less dBms you are receiving.
+- -30 is very good, -90 is not useable, -50 is the sweet spot, -70 works but not well for 
+- 0 no connectivity. 255 is great
+- Sensitivity level
+  -  Need to learn more
+
+#### Need to understand better
+Signal to noise ratio (SNR) 
+- Difference in decibels between signal and background noise.
+- The background noise is called the Noise floor
+
+
 ## Wireless Lan Design
 ### What are the different roaming types?
 Roaming
@@ -23,11 +125,15 @@ Layer three roaming
   - The controller that i am passing through is call the foreign controller
 Anchor controller
 Foreign controller  
-![Anchor Vs Foreign Controllers](../images/AnchorVsForeign.png)
- Mobility group
+![Anchor Vs Foreign Controllers](../images/AnchorVsForeign.png)  
+Mobility group
   - This is where you have groups of controllers that can take and for CAPWAP tunnels with other
   - But you cannot have two WLC that are in different mobility groups form CAPWAP tunnels
   - This will cause a outage for your client
+
+
+
+
 
 # This one needs to be updated
 ### Wireless deployment options
@@ -39,7 +145,7 @@ Cloud
 Remote Branch  
 
 Ad Hoc Wireless lan
-- Two wireless clients connecting directly to each other
+- Two or more wireless clients connecting directly to each other
 - no need for an access point
 - Not used very often  
 
@@ -51,7 +157,7 @@ Mesh Wireless Lan
 
 
 
-
+# Access Points
 
 ## AP type, Ap Mode and antenna type
 
@@ -146,77 +252,6 @@ Directional
   - Yagi
   - Dish 
 
-### Wireless and Radios
-Selecting Wi-Fi channels  
-2.4 Ghz 
-- Technically there are 14 channels. but 14 is only allowed in Japan. and only works on on 802.11b
-- Most common channels are 1, 6, 11
-- Channels are 5 MHz apart
-- Range of frequency 22 MHz
-
-![2.4 GHz diagram](../images/2-4-GHZ-Diagram.png)
-
-5.0 Ghz
-
-Standard|Year released|Frequency band|Maximum bandwidth|Transmission Method
----|---|---|---|---|
-802.11n|2009| 2.4 and 5|150 Mbps|OFDM
-802.11ac|2014|5|3.5 Gbps|OFDM
-802.11ax|2019|2.4 and 5|9.6 Gbps|OFDMA
-
-## Wireless communication Theory
-
-
-
-           |  Cycle  |     Frequency = 2 Hertz
-           ^         ^
-          / \       / \
-         /   \     /   \
-     ---/-----\ --/-----\ ------
-               \ /       \ / 
-                V         V
-        |    1 second       |
-
-Frequency = Number of complete cycles per second  
-Cycle = One complete up and down motion  
-Hertz = Measurement of cycles
-Radio Frequency (RF) Range:
-- Between 3 kilohertz (Khz) and 300 Gighertz (gHz)
-- Wireless communication found within this range
-    - 2.4 GHz band = 2.4 2.4835 GHz
-    - 5 GHz band = 5.15 to 5.85 GHz
-- Wireless band subdivided into channels
-
-RF Signal Strength:
-- Measured in decibel milliwatts (dBm)
-- Transmitters range between 1 and 100 milliwatts
-- Milliwatt (mW) = 1/1000 of a watt
-
-mW|dBm
--|-
-1 mW|0 dBm
-10 mW|10 dBm
-100 mW|20 dBm
-1000 mW|30 dBm
-
-Rule of 10s and 3s:
-- Gain of 10 dBm = mW power is multiplied by 10
-- Loss of 10 dBm =  mW power is divided by 10
-- Gain of 3 dBm = mW power is doubled
-- Loss of 3 dBm = mW power is halved
-
-Received Signal Strength Indicator (RSSI):
-- Closer to zero value means a strong signal
-- the reason its negative is because the farther away you get from the access point the less milliwatts you are receiving. meaning the less dBms you are receiving.
-- -30 is very good, -90 is not useable, -50 is the sweet spot, -70 works but not well for 
-- 0 no connectivity. 255 is great
-- Sensitivity level
-  -  Need to learn more
-
-#### Need to understand better
-Signal to noise ratio (SNR) 
-- Difference in decibels between signal and background noise.
-- The background noise is called the Noise floor
 
 ## WLAN Troubleshooting
 Sucessful client WLAN association
@@ -280,15 +315,3 @@ EAP Types
 
 
 
-## Terminology
-Term|Definition|Other
----|---|---
-IBSS|Ad hoc service connection|Independent Basic Service Set
-SSID|Name of a network|Service Set ID
-BSSID|MAC Address of an access point| Basic Service Set ID
-ESSID|A collection of all BSSs (Same as SSID| Extended Service Set ID
-MBSSID|| Multiple Basic Service Set ID
-Intra-controller roaming
-Inter-controller roaming
-EIRP||Effective Isotropic radiated power
-Free space path loss||
