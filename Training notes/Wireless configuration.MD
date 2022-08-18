@@ -27,9 +27,20 @@ Security
 - Layer 2
   - Here you are using EAP, PSK and other authentication protocols
   - When configuring EAP if you select 802.1x only, that will only allow for authentication and not encryption. 
+  - You can do mac address filtering on your WLC. You also have the ability to Filter mac address by using a central server, like ISE or ACS. 
+    - To configure this is very simple, enable mac filtering on the WLAN. Then add the mac address to the list of mac addresses.
 - Layer 3
   - Here you will be using a splash screen or some for of website based authentication.
 - AAA servers
+
+Setting up mobility group
+- you need to know the follow from your other member
+  - Ip address
+  - member mac address
+  - group name
+  - hash
+- you then proceed to set that up in the controller setting under mobility management.
+- You can use mping to test out the management path, and eping to test the data path.
 
 ## NOTES
 In a large business environment using PSK is a VERY BAD IDEA. You should use 802.1x. 
